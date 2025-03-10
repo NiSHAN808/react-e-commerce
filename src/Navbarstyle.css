@@ -1,4 +1,4 @@
-nav{
+nav {
     background-color: aqua;
     height: 2.5rem;
     display: flex;
@@ -6,37 +6,43 @@ nav{
     align-items: center;
 }
 
-.pages{
+.pages {
     width: 50vw;
     background-color: rgb(200, 219, 160);
     display: flex;
 
     justify-content: space-around;
-} 
-.hamburger{
+}
+
+.hamburger {
     display: none;
     z-index: 2;
 }
-.pages a{
-   background-color: brown;
-display: inline-block;
+
+.pages a {
+    background-color: brown;
+    display: inline-block;
 }
+
 @media only screen and (max-width: 400px) {
-    .pages{
-        /* display: none;   */
-      
-      /* height: 100vh;
-      justify-content: center;
-      
-      align-items: center;
-      flex-direction: column;
-      position: absolute;
-      top: 0px;
-      right: 0px;  */
-    } .pages a{
-   margin-top: 5%;
-     }
-    .hamburger{
-        display:initial;
+    .pages {
+        display: none;
+
+        height: 100vh;
+        justify-content: center;
+
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        right: 0px;
     }
-  }
+
+    .pages a {
+        margin-top: 5%;
+    }
+
+    .hamburger {
+        display: initial;
+    }
+}
