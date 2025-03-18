@@ -1,33 +1,12 @@
-nav {
-    background-color: aqua;
-    height: 2.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+@import "tailwindcss";
 
-.pages {
-    width: 50vw;
-    background-color: rgb(200, 219, 160);
-    display: flex;
 
-    justify-content: space-around;
-}
 
-.hamburger {
-    display: none;
-    z-index: 2;
-}
-
-.pages a {
-    background-color: brown;
-    display: inline-block;
-}
 
 @media only screen and (max-width: 400px) {
     .pages {
         display: none;
-
+        background-color: rgb(200, 219, 160);
         height: 100vh;
         justify-content: center;
 

@@ -18,17 +18,17 @@ function Navbar() {
     return (
         <>
 
-            <nav>
+            <nav className="bg-blue-400 h-10 flex justify-between items-center">
                 <div className="logo">
                     website
                 </div>
 
-                <div onClick={handleHamClick} className="hamburger">=</div>
-                <div ref={pages} className="pages">
+                <div onClick={handleHamClick} className="hidden hamburger z-5">=</div>
+                <div ref={pages} className="pages w-[40vw] flex justify-around">
 
-                    <a>home</a>
-                    <a>products</a>
-                    <a>cart</a>
+                    <a className="hover:text-purple-700 ">home</a>
+                    <a className="hover:text-purple-700 ">products</a>
+                    <a className="hover:text-purple-700 ">cart</a>
                 </div>
             </nav>
 
