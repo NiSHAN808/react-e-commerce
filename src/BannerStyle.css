@@ -1,18 +1,4 @@
+@import "tailwindcss";
 
-
-
-.prosuctCard{
-background-color: #d36060;
-display: inline-block;
-padding: 1rem;
-
-}
-.productName{
-    background-color: #7e2ac4;
-}
-.productPrice{
-    background-color: #cab711;
-}
-    .productSolds{
-        background-color: #6cb36b;
-    }
+/* tailwind will take take 
+care of root margain and padding 0px */
