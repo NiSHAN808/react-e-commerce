@@ -1,5 +1,5 @@
 import "./Navbarstyle.css";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState } from "react";  import { Link } from "react-router";
 function Navbar() {
     let pageStyle = useRef(0);
     const pages = useRef(0);
@@ -25,10 +25,12 @@ function Navbar() {
 
                 <div onClick={handleHamClick} className="hidden hamburger z-5">=</div>
                 <div ref={pages} className="pages w-[40vw] flex justify-around">
-
-                    <a className="hover:text-purple-700 ">home</a>
+                <Link to="/" className="hover:text-purple-700 " >home</Link>
+                <Link to="/second" className="hover:text-purple-700 " >products</Link>
+                <Link to="/cart" className="hover:text-purple-700 " >cart</Link>
+                    {/* <a className="hover:text-purple-700 ">home</a>
                     <a className="hover:text-purple-700 ">products</a>
-                    <a className="hover:text-purple-700 ">cart</a>
+                    <a className="hover:text-purple-700 ">cart</a> */}
                 </div>
             </nav>
 
