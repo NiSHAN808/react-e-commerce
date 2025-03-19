@@ -1,10 +1,10 @@
 
-import "./Bannerstyle.css"
+
 function Banner(props){
     
 return(
-    <div className="p-1 bg-indigo-100 inline-block ">
-        <img src={props.image} className="productImages"/>
+    <div className="inline-block h-fit mt-[0.5rem] ml-[0.5rem] inline w-[10rem]">
+        <img src={props.image} className="w-[10rem]"/>
      <div>
      <div className="bg-teal-200 flex h-10 items-center justify-center">{props.name}</div>
      <div className="bg-purple-300 flex h-10 items-center justify-center">rs {props.price}</div>
