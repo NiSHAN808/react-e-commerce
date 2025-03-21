@@ -1,9 +1,11 @@
+import { Link } from "react-router";
 
 
 function Banner(props){
-    
+    let x=props.image; x=x.slice(10,x.length); console.log(x);
+   let link="/products/"+x;
 return(
-    <div className="inline-block h-fit mt-[0.5rem] ml-[0.5rem] inline w-[10rem] bg-white hover:bg-blue-200 p-[0.3rem]">
+    <Link to={link} className="inline-block h-fit mt-[0.5rem] ml-[0.5rem] inline w-[10rem] bg-white hover:bg-blue-200 p-[0.3rem]">
         <img loading="lazy" src={props.image} className="w-[10rem]"/>
      <div className="pl-[0.4rem]">
      <div className=" flex h-10">{props.name}</div>
@@ -11,7 +13,7 @@ return(
      <div className="flex h-10 text-[0.8rem]">{props.sold} sold</div>
      </div>
  
-    </div>
+    </Link>
 )
 
 }
