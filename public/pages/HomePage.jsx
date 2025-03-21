@@ -1,9 +1,10 @@
-let x="../images/tshirt.jpg";
-import Banner from "../../src/Banner";
-import GooglePhone from "../images/phone.png"
-const tshirt = x;
-import iphone from "../images/iphone.webp";
-import keyboard from "../images/keyboard.jpg";
+ import Banner from "../../src/Banner";
+
+
+const GooglePhone = "../images/phone.png"
+const tshirt = "../images/tshirt.jpg";
+const iphone = "../images/iphone.webp";
+const keyboard =  "../images/keyboard.jpg";
 function HomePage(){
 
 
@@ -33,7 +34,7 @@ let datas=[{image:GooglePhone, name:"Google Phone 9 256gb 8gb pink color", price
 
 return(
 
-    <>      <img  src={x} className="w-[10rem]"/>
+    <>      
        <div className="w-100vw flex justify-center bg-purple-700">
         <div className="w-[70rem]  flex justify-center flex-wrap bg-gray-200">
         {datas.map((data)=> (<Banner 

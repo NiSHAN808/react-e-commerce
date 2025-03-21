@@ -9,7 +9,7 @@ const router =createBrowserRouter([
   {path:"/", element: <><Navbar/><HomePage/></>},
   {path:"/second", element: <><Navbar/><Banner image={phone} name="phone" price="100,000" sold="8"/></>},
   {path:"/cart", element: <><Navbar/><CartPage/></>},
-  {path:"/products/:image/:n", element: <><Navbar/><Product/></>}
+  {path:"/products/:image/:name/:price/:sold", element: <><Navbar/><Product/></>}
 ])     
  function App() {
   

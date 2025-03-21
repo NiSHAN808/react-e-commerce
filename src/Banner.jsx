@@ -2,8 +2,8 @@ import { Link } from "react-router";
 
 
 function Banner(props){
-    let x=props.image; x=x.slice(10,x.length); console.log(x);
-   let link="/products/"+x;
+    let x=props.image; x=x.slice(10,x.length);
+   let link="/products/"+x+"/"+props.name+"/"+props.price+"/"+props.sold;
 return(
     <Link to={link} className="inline-block h-fit mt-[0.5rem] ml-[0.5rem] inline w-[10rem] bg-white hover:bg-blue-200 p-[0.3rem]">
         <img loading="lazy" src={props.image} className="w-[10rem]"/>
