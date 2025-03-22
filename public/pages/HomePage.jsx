@@ -35,8 +35,8 @@ let datas=[{image:GooglePhone, name:"Google Phone 9 256gb 8gb pink color", price
 return(
 
     <>      
-       <div className="w-100vw flex justify-center bg-purple-700">
-        <div className="w-[70rem]  flex justify-center flex-wrap bg-gray-200">
+       <div className="w-100vw flex justify-center bg-gray-200">
+        <div className="w-[80rem]  flex justify-center flex-wrap ">
         {datas.map((data)=> (<Banner 
         image={data.image} 
         name={data.name}
