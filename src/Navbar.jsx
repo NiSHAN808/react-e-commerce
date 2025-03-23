@@ -18,7 +18,7 @@ function Navbar() {
     return (
         <>
 
-            <nav className="bg-blue-400 h-10 flex justify-between items-center">
+            <nav className="bg-blue-400 h-10 flex justify-between items-center sticky top-0">
                 <div className="logo">
                     website
                 </div>
