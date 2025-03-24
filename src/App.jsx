@@ -1,5 +1,5 @@
 import Navbar from "./Navbar"
-import Footer from "./Footer"
+import Footer from "../public/pages/Footer"
 import Banner from "./Banner"
 import phone from "../public/images/phone.png"
 import HomePage from "../public/pages/HomePage"

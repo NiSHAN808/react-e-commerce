@@ -9,7 +9,7 @@ return(
         <img loading="lazy" src={props.image} className="w-[14rem]"/>
      <div className="pl-[0.4rem]">
      <div className=" flex h-10">{props.name}</div>
-     <div className=" flex h-7 text-green-500 text-[1.2rem]">rs {props.price}</div>
+     <div className=" flex h-7 text-blue-500 text-[1.2rem]">rs {props.price}</div>
      <div className="flex h-10 text-[0.8rem]">{props.sold} sold</div>
      </div>
  
