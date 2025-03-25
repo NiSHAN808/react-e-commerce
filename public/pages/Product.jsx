@@ -2,21 +2,60 @@ import { useParams } from "react-router-dom";
 import react, { useState } from "react";
 
 
+function BuyAndCart() {
 
-function Product() {
+    return (
+        <>
+            Buy   Add to cart
+        </>
+    )
+}
+function Color() {
+    let [color, setcolor] = useState("red");
     const params = useParams();
-    let [quantity, setQuantity]=useState(1);
-    let [color, setcolors]=useState("red");
-function handleQuantityIncrease(){
-setQuantity(quantity+1);
-}
-
-function handleQuantityDecrease(){
-    setQuantity(quantity-1);   
-}
-
     const imageLocation = `/images/${params.image}`;
-    console.log(imageLocation);
+
+
+    function handleProductColorChange(col) {
+        setcolor(col);
+    }
+    return (
+        <>
+            <div className="text-[1.2rem]">color: {color}</div>
+
+            {/* this allows to select images later we can use map when we have 
+ actual data but for now we dont have data so its fi */}
+            <div className="inline-flex mt-[0.3rem]">
+
+                <div className="inline-flex flex-col text-[.9rem] mr-[0.3rem]">
+                    <img onClick={() => handleProductColorChange("red")} src={imageLocation} className="w-[4rem] inline-block" />
+                    red</div>
+
+                <div className="inline-flex flex-col text-[.9rem] mr-[0.3rem]">
+                    <img onClick={() => handleProductColorChange("blue")} src={imageLocation} className="w-[4rem] inline-block" />
+                    blue</div>
+
+
+            </div>
+        </>
+    )
+}
+function Product() {
+
+    let [quantity, setQuantity] = useState(1);
+
+    const params = useParams();
+    const imageLocation = `/images/${params.image}`;
+    function handleQuantityIncrease() {
+        setQuantity(quantity + 1);
+    }
+
+    function handleQuantityDecrease() {
+        setQuantity(quantity - 1);
+    }
+
+
+
     return (<>
 
 
@@ -35,12 +74,15 @@ function handleQuantityDecrease(){
 
                     <div className=" text-[3rem] p-[0.2rem] ">rs <h3 className="  text-green-500 inline">{params.price} </h3> </div>
 
-                    <div>color: {color}</div>
+                    <Color />
+                    <div className="mt-[0.3rem] text-[1.2rem]">Quantity: {quantity}</div>
                     <div className="flex">
-                    <button className="bg-blue-500   h-[2.3rem] w-[2.3rem]" onClick={handleQuantityDecrease} >-</button>
-                    <div contenteditable="true" className="bg-blue-500 inline-flex  h-[2.3rem] w-[2.3rem]  justify-center items-center" >{quantity}</div>
-                    <button className="bg-blue-500 inline-block  h-[2.3rem] w-[2.3rem]" onClick={handleQuantityIncrease}>+</button>
+                        <button className="bg-blue-500   h-[2.3rem] w-[2.3rem]" onClick={handleQuantityDecrease} >-</button>
+                        <div contenteditable="true" className="bg-blue-500 inline-flex  h-[2.3rem] w-[2.3rem]  justify-center items-center" >{quantity}</div>
+                        <button className="bg-blue-500 inline-block  h-[2.3rem] w-[2.3rem]" onClick={handleQuantityIncrease}>+</button>
                     </div>
+
+                    <BuyAndCart />
                 </div>
             </div>
 
