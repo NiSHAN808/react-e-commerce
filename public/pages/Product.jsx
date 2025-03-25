@@ -2,12 +2,25 @@ import { useParams } from "react-router-dom";
 import react, { useState } from "react";
 
 
+
+
+
+
+
+
+
+
 function BuyAndCart() {
 
     return (
-        <>
-            Buy   Add to cart
-        </>
+        <div className="mt-[1rem]">
+            <button className="bg-[#fcb700] text-black w-[15vw] mr-[1rem] px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#e6a600]">
+        Buy
+      </button>
+      <button className="bg-[#00bafe] text-black w-[15vw]  px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#0288b9]">
+        Add to Cart
+      </button>
+        </div>
     )
 }
 function Color() {
