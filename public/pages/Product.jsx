@@ -15,38 +15,35 @@ function BuyAndCart() {
     return (
         <div className="mt-[1rem]">
             <button className="bg-[#fcb700] text-black w-[15vw] mr-[1rem] px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#e6a600]">
-        Buy
-      </button>
-      <button className="bg-[#00bafe] text-black w-[15vw]  px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#0288b9]">
-        Add to Cart
-      </button>
+                Buy
+            </button>
+            <button className="bg-[#00bafe] text-black w-[15vw]  px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#0288b9]">
+                Add to Cart
+            </button>
         </div>
     )
 }
+
+
 function Color() {
     let [color, setcolor] = useState("red");
     const params = useParams();
     const imageLocation = `/images/${params.image}`;
 
-
+    let colorsList = ["red", "blue", "green"];
     function handleProductColorChange(col) {
         setcolor(col);
     }
     return (
         <>
-            <div className="text-[1.2rem]">color: {color}</div>
+            <div className="text-[1.2rem]">Color: {color}</div>
 
             {/* this allows to select images later we can use map when we have 
  actual data but for now we dont have data so its fi */}
             <div className="inline-flex mt-[0.3rem]">
-
-                <div className="inline-flex flex-col text-[.9rem] mr-[0.3rem]">
-                    <img onClick={() => handleProductColorChange("red")} src={imageLocation} className="w-[4rem] inline-block" />
-                    red</div>
-
-                <div className="inline-flex flex-col text-[.9rem] mr-[0.3rem]">
-                    <img onClick={() => handleProductColorChange("blue")} src={imageLocation} className="w-[4rem] inline-block" />
-                    blue</div>
+                {colorsList.map((c) => <div className={color === c ? "inline-flex flex-col  items-center text-[.9rem] mr-[0.3rem] border border-[0.1rem] border-[#a7a1a1]" : "inline-flex flex-col  items-center text-[.9rem] mr-[0.3rem]"}>
+                    <img onClick={() => handleProductColorChange(c)} src={imageLocation} className="w-[4rem] inline-block" />
+                    {c}</div>)}
 
 
             </div>
