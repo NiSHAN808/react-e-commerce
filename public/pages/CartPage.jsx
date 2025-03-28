@@ -18,18 +18,18 @@ function Item(props) {
 
         <div className="bg-white inline-flex w-[80vw] p-[0.5rem] w-[10rem] mt-[1rem]">
             <input className="h-[2rem] w-[2rem] mr-[3rem]" onClick={cartItemSeletec} type="checkbox"></input>
-            <img src={props.image} className="w-[10vw] inline-block" />
-            <div className="inline-block w-[42%] bg-blue-200 ml-[2rem]">
+            <img src={props.image} className="w-[10vw] h-[10vw] inline-block" />
+            <div className="inline-block w-[42%] ml-[2rem]">
                 <h3 > {props.name}</h3>
-                <h3 className="text-[1.5rem] text-blue-800"> {props.price}</h3>
+                <h3 className="text-[1.5rem] text-blue-800"> Rs : {props.price}</h3>
 
             </div>
-            <div className="inline-block ml-[2rem]">
-                <h3> {props.color}</h3>
+            <div className="inline-flex h-auto  flex-col  justify-center items-center  ml-[2rem]">
+                <h3 className="text-[1.6rem] font-serif"> color :  {props.color}</h3>
                 <div className="flex">
-                        <button className="bg-blue-500   h-[2.3rem] w-[2.3rem]" onClick={handleQuantityDecrease} >-</button>
-                        <div contenteditable="true" className="bg-blue-500 inline-flex  h-[2.3rem] w-[2.3rem]  justify-center items-center" >{quantity}</div>
-                        <button className="bg-blue-500 inline-block  h-[2.3rem] w-[2.3rem]" onClick={handleQuantityIncrease}>+</button>
+                        <button className="bg-blue-100   h-[2.3rem] w-[2.3rem]" onClick={handleQuantityDecrease} >-</button>
+                        <div contenteditable="true" className="bg-blue-200 inline-flex  h-[2.3rem] w-[2.3rem]  justify-center items-center" >{quantity}</div>
+                        <button className="bg-blue-300 inline-block  h-[2.3rem] w-[2.3rem]" onClick={handleQuantityIncrease}>+</button>
                     </div>
 
             </div>
