@@ -10,14 +10,34 @@ import react, { useState } from "react";
 
 
 
-function BuyAndCart() {
+function BuyAndCart(props) {
+
+
+function handdleAddtoCart(){
+// console.log(props.image)
+// console.log(props.name)
+// console.log(props.price)
+// console.log(props.sold)
+// console.log(props.color)
+
+let cartItem=JSON.parse(localStorage.getItem("cartItem"));
+if(cartItem != null){ console.log("not NU::"); console.log(typeof(cartItem));
+
+    cartItem.push({image:props.image, name:props.name, price:props.price, sold: props.sold, color: props.color})
+}else{
+    cartItem=[{image:props.image, name:props.name, price:props.price, sold: props.sold, color: props.color}];
+}
+console.log(cartItem);
+localStorage.setItem("cartItem",JSON.stringify(cartItem));
+}
+
 
     return (
         <div className="mt-[1rem]">
             <button className="bg-[#fcb700] text-black w-[15vw] mr-[1rem] px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#e6a600]">
                 Buy
             </button>
-            <button className="bg-[#00bafe] text-black w-[15vw]  px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#0288b9]">
+            <button onClick={handdleAddtoCart} className="bg-[#00bafe] text-black w-[15vw]  px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#0288b9]">
                 Add to Cart
             </button>
         </div>
@@ -25,17 +45,17 @@ function BuyAndCart() {
 }
 
 
-function Color() {
-    let [color, setcolor] = useState("red");
+function Color(props) {
+    let [color, setcolor] = useState("red"); props.setSlectedColor(color);
     const params = useParams();
     const imageLocation = `/images/${params.image}`;
 
     let colorsList = ["red", "blue", "green"];
     function handleProductColorChange(col) {
-        setcolor(col);
+        setcolor(col);   props.setSlectedColor(col);
     }
     return (
-        <>
+        <> 
             <div className="text-[1.2rem]">Color: {color}</div>
 
             {/* this allows to select images later we can use map when we have 
@@ -51,7 +71,7 @@ function Color() {
     )
 }
 function Product() {
-
+let [selectedColor,setSlectedColor]=useState("");
     let [quantity, setQuantity] = useState(1);
 
     const params = useParams();
@@ -84,18 +104,22 @@ function Product() {
 
                     <div className=" text-[3rem] p-[0.2rem] ">rs <h3 className="  text-green-500 inline">{params.price} </h3> </div>
 
-                    <Color />
+                    <Color setSlectedColor={setSlectedColor}/>
                     <div className="mt-[0.3rem] text-[1.2rem]">Quantity: {quantity}</div>
                     <div className="flex">
-                        <button className="bg-blue-500   h-[2.3rem] w-[2.3rem]" onClick={handleQuantityDecrease} >-</button>
-                        <div contenteditable="true" className="bg-blue-500 inline-flex  h-[2.3rem] w-[2.3rem]  justify-center items-center" >{quantity}</div>
-                        <button className="bg-blue-500 inline-block  h-[2.3rem] w-[2.3rem]" onClick={handleQuantityIncrease}>+</button>
+                        <button className="bg-blue-200   h-[2.3rem] w-[2.3rem]" onClick={handleQuantityDecrease} >-</button>
+                        <div contenteditable="true" className="bg-blue-300 inline-flex  h-[2.3rem] w-[2.3rem]  justify-center items-center" >{quantity}</div>
+                        <button className="bg-blue-400 inline-block  h-[2.3rem] w-[2.3rem]" onClick={handleQuantityIncrease}>+</button>
                     </div>
 
-                    <BuyAndCart />
+                    <BuyAndCart image={params.image} 
+                    name={params.name} 
+                    price={params.price} 
+                    sold={params.sold} 
+                    color={selectedColor}/>
                 </div>
             </div>
-
+  s:{selectedColor}
         </div>
     </>
     )

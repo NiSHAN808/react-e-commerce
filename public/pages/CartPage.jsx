@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Item(props) {
-    
+    let imageLocation = `/images/${props.image}`;
     const[quantity,setQuantity]=useState(1);
 
     function cartItemSeletec(e) { if(e.target.checked){
@@ -18,7 +18,7 @@ function Item(props) {
 
         <div className="bg-white inline-flex w-[80vw] p-[0.5rem] w-[10rem] mt-[1rem]">
             <input className="h-[2rem] w-[2rem] mr-[3rem]" onClick={cartItemSeletec} type="checkbox"></input>
-            <img src={props.image} className="w-[10vw] h-[10vw] inline-block" />
+            <img src={imageLocation} className="w-[10vw] h-[10vw] inline-block" />
             <div className="inline-block w-[42%] ml-[2rem]">
                 <h3 > {props.name}</h3>
                 <h3 className="text-[1.5rem] text-blue-800"> Rs : {props.price}</h3>
@@ -42,13 +42,13 @@ function Item(props) {
 function CartPage() {
 
     const [billPrice, setBillPrice] = useState(0);
+  //  const imageLocation = `/images/${params.image}`;
 
+let cartList=JSON.parse(localStorage.getItem("cartItem"));
 
-
-
-    let cartList = [{ image: "/images/keyboard.jpg", name: "keyboard Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic nihil rerum qui saepe ratione quia ", price: 5000, sold: "256"},
-    { image: "/images/phone.png", name: "Google Phone", price: 10000, sold: "120" },
-    { image: "/images/tshirt.jpg", name: "t-Shirt", price: 2000, sold: "12" },]
+    // let cartList = [{ image: "/images/keyboard.jpg", name: "keyboard Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic nihil rerum qui saepe ratione quia ", price: 5000, sold: "256"},
+    // { image: "/images/phone.png", name: "Google Phone", price: 10000, sold: "120" },
+    // { image: "/images/tshirt.jpg", name: "t-Shirt", price: 2000, sold: "12" },]
 
     return (
 
@@ -61,7 +61,7 @@ function CartPage() {
                 image={elm.image}
                 name={elm.name}
                 price={elm.price}
-                color="red"
+                color={elm.color}
             />)}
 
             {billPrice}
