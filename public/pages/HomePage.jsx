@@ -44,26 +44,26 @@ Products
 function HomePage(){
 
 
-let datas=[{image:GooglePhone, name:"Google Phone 9 256gb 8gb pink color", price:"10,000" ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:"2,000" ,sold:"12"},
-    {image:iphone, name:"Apple iphoe", price:"100,000" ,sold:"8"},
-    {image:keyboard, name:"keyboard", price:"5,000" ,sold:"256"},
-    {image:GooglePhone, name:"Google Phone", price:"10,000" ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:"2,000" ,sold:"12"},
+let datas=[{image:GooglePhone, name:"Google Phone 9 256gb 8gb pink color", price:10000 ,sold:"120"},
+    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
+    {image:iphone, name:"Apple iphoe", price:100000 ,sold:"8"},
+    {image:keyboard, name:"keyboard", price:5000 ,sold:"256"},
+    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
+    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
 
-    {image:GooglePhone, name:"Google Phone", price:"10,000" ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:"2,000" ,sold:"12"},
-    {image:iphone, name:"Apple iphoe", price:"100,000" ,sold:"8"},
-    {image:keyboard, name:"keyboard", price:"5,000" ,sold:"256"},
-    {image:GooglePhone, name:"Google Phone", price:"10,000" ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:"2,000" ,sold:"12"},
+    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
+    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
+    {image:iphone, name:"Apple iphoe", price:100000 ,sold:"8"},
+    {image:keyboard, name:"keyboard", price:5000 ,sold:"256"},
+    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
+    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
 
-    {image:GooglePhone, name:"Google Phone", price:"10,000" ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:"2,000" ,sold:"12"},
-    {image:GooglePhone, name:"Google Phone", price:"10,000" ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:"2,000" ,sold:"12"},
-    {image:iphone, name:"Apple iphoe", price:"100,000" ,sold:"8"},
-    {image:keyboard, name:"keyboard", price:"5,000" ,sold:"256"},
+    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
+    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
+    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
+    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
+    {image:iphone, name:"Apple iphoe", price:100000 ,sold:"8"},
+    {image:keyboard, name:"keyboard", price:5000 ,sold:"256"},
 ];
 
 
