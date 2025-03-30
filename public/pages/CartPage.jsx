@@ -52,10 +52,10 @@ let cartList=JSON.parse(localStorage.getItem("cartItem"));
 
     return (
 
-        <div className=" flex flex-col  items-center bg-gray-200 w-screen">
+        <div className=" flex flex-col  items-center bg-gray-200 w-full">
 
 
-            {cartList.map(elm => <Item
+            {cartList === null ?<>no data availabe</> : cartList.map(elm => <Item
                 billPrice={billPrice}
                 setBillPrice={setBillPrice}
                 image={elm.image}
