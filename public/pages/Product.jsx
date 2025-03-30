@@ -19,13 +19,15 @@ function handdleAddtoCart(){
 // console.log(props.price)
 // console.log(props.sold)
 // console.log(props.color)
-
+let priceInt= props.price;
+priceInt=Number(priceInt);
+console.log(typeof(x));
 let cartItem=JSON.parse(localStorage.getItem("cartItem"));
-if(cartItem != null){ console.log("not NU::"); console.log(typeof(cartItem));
+if(cartItem != null){ 
 
-    cartItem.push({image:props.image, name:props.name, price:props.price, sold: props.sold, color: props.color})
+    cartItem.push({image:props.image, name:props.name, price:priceInt, sold: props.sold, color: props.color})
 }else{
-    cartItem=[{image:props.image, name:props.name, price:props.price, sold: props.sold, color: props.color}];
+    cartItem=[{image:props.image, name:props.name, price:priceInt, sold: props.sold, color: props.color}];
 }
 console.log(cartItem);
 localStorage.setItem("cartItem",JSON.stringify(cartItem));

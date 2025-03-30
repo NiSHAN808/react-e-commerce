@@ -75,12 +75,13 @@ return(
          <Products/>
        <div className="w-100vw flex justify-center bg-gray-200 pb-[2rem]">
         <div className="w-[80rem]  flex justify-center flex-wrap ">
-        {datas.map((data)=> (<Banner 
+       
+        {datas===null ? <>NO ITEM IN CART</>: datas.map((data)=> (<Banner 
         image={data.image} 
         name={data.name}
         price={data.price}
         sold={data.sold}
-        />)) }
+        />))} 
         
         
         </div>

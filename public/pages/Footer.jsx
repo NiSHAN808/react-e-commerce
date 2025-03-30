@@ -8,6 +8,19 @@ function Footer() {
                             <button className="hidden max-[700px]:flex">
                                 <svg width="55" height="55" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5H7z" />
                                 </svg>
+
+
+
+{/* 
+                                <svg width="55" height="55" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+  <path d="M17 14l-5-5-5 5h10z"/>
+</svg> */}
+
+
+
+
+
+
                             </button>
                         </header>
                         <ul className="max-[700px]:hidden">
