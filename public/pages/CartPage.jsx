@@ -16,8 +16,47 @@ function Item(props) {
     }
     return (
 
-        <div className="bg-white inline-flex w-[80vw] p-[0.5rem] w-[10rem] mt-[1rem]">
+        <div className="bg-white inline-flex w-[80vw] p-[0.5rem] w-[10rem] mt-[1rem]"><div className=" flex flex-col justify-around">
             <input className="h-[2rem] w-[2rem] mr-[3rem]" onClick={cartItemSeletec} type="checkbox"></input>
+            <button>
+            
+<svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M3 6H5H21"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+    <path
+        d="M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6M19 6V20C19 20.5523 18.5523 21 18 21H6C5.44772 21 5 20.5523 5 20V6H19Z"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+    <path
+        d="M10 11V17"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+    <path
+        d="M14 11V17"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+</svg>
+                </button></div>
             <img src={imageLocation} className="w-[10vw] h-[10vw] inline-block" />
             <div className="inline-block w-[42%] ml-[2rem]">
                 <h3 > {props.name}</h3>
