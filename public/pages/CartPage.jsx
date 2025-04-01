@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 function Item(props) {
     let imageLocation = `/images/${props.image}`;
     const[quantity,setQuantity]=useState(1);
+function handleDelClick(){
+    props.setCartList(props.cartList.filter((item,index)=> index != props.index)); 
+   }
+    useEffect(() => {
+        localStorage.setItem("cartItem",JSON.stringify(props.cartList));
+      }, [props.cartList]);
+
 
     function cartItemSeletec(e) { if(e.target.checked){
         props.setBillPrice(props.billPrice + props.price);   }else{props.setBillPrice(props.billPrice - props.price);}
@@ -18,7 +25,7 @@ function Item(props) {
 
         <div className="bg-white inline-flex w-[80vw] p-[0.5rem] w-[10rem] mt-[1rem]"><div className=" flex flex-col justify-around">
             <input className="h-[2rem] w-[2rem] mr-[3rem]" onClick={cartItemSeletec} type="checkbox"></input>
-            <button>
+            <button onClick={handleDelClick}> 
             
 <svg
     width="24"
@@ -81,26 +88,27 @@ function Item(props) {
 function CartPage() {
 
     const [billPrice, setBillPrice] = useState(0);
-  //  const imageLocation = `/images/${params.image}`;
+    const [cartList,setCartList]=useState([]);
 
-let cartList=JSON.parse(localStorage.getItem("cartItem"));
-
-    // let cartList = [{ image: "/images/keyboard.jpg", name: "keyboard Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic nihil rerum qui saepe ratione quia ", price: 5000, sold: "256"},
-    // { image: "/images/phone.png", name: "Google Phone", price: 10000, sold: "120" },
-    // { image: "/images/tshirt.jpg", name: "t-Shirt", price: 2000, sold: "12" },]
-
+useEffect(()=>{
+setCartList(JSON.parse(localStorage.getItem("cartItem")));
+},[]);
     return (
 
         <div className=" flex flex-col  items-center bg-gray-200 w-full">
 
 
-            {cartList === null ?<>no data availabe</> : cartList.map(elm => <Item
+            {cartList.length===0 ?<>no data availabe</> : cartList.map((elm,index) => <Item
                 billPrice={billPrice}
                 setBillPrice={setBillPrice}
                 image={elm.image}
                 name={elm.name}
                 price={elm.price}
                 color={elm.color}
+                
+                cartList={cartList}
+                setCartList={setCartList}
+                index={index}
             />)}
 
             {billPrice}
