@@ -1,5 +1,6 @@
- import Banner from "../../src/Banner";
-
+ import { data } from "react-router";
+import Banner from "../../src/Banner";
+import React,{useState,useEffect} from "react";
 
 const GooglePhone = "../images/phone.png"
 const tshirt = "../images/tshirt.jpg";
@@ -43,29 +44,15 @@ Products
 
 function HomePage(){
 
+let [temp,setTemp]=useState([]);
 
-let datas=[{image:GooglePhone, name:"Google Phone 9 256gb 8gb pink color", price:10000 ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
-    {image:iphone, name:"Apple iphoe", price:100000 ,sold:"8"},
-    {image:keyboard, name:"keyboard", price:5000 ,sold:"256"},
-    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
 
-    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
-    {image:iphone, name:"Apple iphoe", price:100000 ,sold:"8"},
-    {image:keyboard, name:"keyboard", price:5000 ,sold:"256"},
-    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
-
-    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
-    {image:GooglePhone, name:"Google Phone", price:10000 ,sold:"120"},
-    {image:tshirt, name:"t-Shirt", price:2000 ,sold:"12"},
-    {image:iphone, name:"Apple iphoe", price:100000 ,sold:"8"},
-    {image:keyboard, name:"keyboard", price:5000 ,sold:"256"},
-];
-
+useEffect(()=>{
+  fetch('https://fakestoreapi.com/products')
+  .then(response => response.json())
+  .then(data => setTemp(data));
+  
+},[])
 
 
 return(
@@ -76,11 +63,11 @@ return(
        <div className="w-100vw flex justify-center bg-gray-200 pb-[2rem]">
         <div className="w-[80rem]  flex justify-center flex-wrap ">
        
-        {datas===null ? <>NO ITEM IN CART</>: datas.map((data)=> (<Banner 
+        {temp===null ? <>NO ITEM IN CART</>: temp.map((data)=> (<Banner 
         image={data.image} 
-        name={data.name}
+        name={data.title}
         price={data.price}
-        sold={data.sold}
+        sold={data.rating.count}
         />))} 
         
         
