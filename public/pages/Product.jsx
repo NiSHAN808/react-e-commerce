@@ -50,7 +50,7 @@ localStorage.setItem("cartItem",JSON.stringify(cartItem));
 function Color(props) {
     let [color, setcolor] = useState("red"); props.setSlectedColor(color);
     const params = useParams();
-    const imageLocation = `/images/${params.image}`;
+    const imageLocation = `https://fakestoreapi.com/img/${params.image}`;
 
     let colorsList = ["red", "blue", "green"];
     function handleProductColorChange(col) {
@@ -77,7 +77,7 @@ let [selectedColor,setSlectedColor]=useState("");
     let [quantity, setQuantity] = useState(1);
 
     const params = useParams();
-    const imageLocation = `/images/${params.image}`;
+    const imageLocation = `https://fakestoreapi.com/img/${params.image}`;
     function handleQuantityIncrease() {
         setQuantity(quantity + 1);
     }
@@ -95,7 +95,7 @@ let [selectedColor,setSlectedColor]=useState("");
         <div className=" w-full h-[90vh] bg-gray-200 inline-flex justify-center items-center">
             <div className=" w-[75vw] h-[75vh] bg-white inline-flex">
                 <div className=" w-[35vw] h-[75vh]  inline-block">
-                    <img src={imageLocation} className="w-[30rem]" />
+                    <img src={imageLocation} className="w-[30rem] h-[30rem]" />
 
                 </div>
 
@@ -104,7 +104,7 @@ let [selectedColor,setSlectedColor]=useState("");
                     <hr />
                     <h4 className=" text-[1.5rem] p-[0.5rem]">{params.sold} </h4>
 
-                    <div className=" text-[3rem] p-[0.2rem] ">rs <h3 className="  text-green-500 inline">{params.price} </h3> </div>
+                    <div className=" text-[3rem] p-[0.2rem] ">$ <h3 className="  text-blue-500 inline">{params.price} </h3> </div>
 
                     <Color setSlectedColor={setSlectedColor}/>
                     <div className="mt-[0.3rem] text-[1.2rem]">Quantity: {quantity}</div>

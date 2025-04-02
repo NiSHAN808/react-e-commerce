@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 
 function Item(props) {
-    let imageLocation = `/images/${props.image}`;
+    let imageLocation = `https://fakestoreapi.com/img/${props.image}`;
     const[quantity,setQuantity]=useState(1);
 function handleDelClick(){
     props.setCartList(props.cartList.filter((item,index)=> index != props.index)); 
@@ -67,7 +67,7 @@ function handleDelClick(){
             <img src={imageLocation} className="w-[10vw] h-[10vw] inline-block" />
             <div className="inline-block w-[42%] ml-[2rem]">
                 <h3 > {props.name}</h3>
-                <h3 className="text-[1.5rem] text-blue-800"> Rs : {props.price}</h3>
+                <h3 className="text-[1.5rem] text-blue-800"> $ {props.price}</h3>
 
             </div>
             <div className="inline-flex h-auto  flex-col  justify-center items-center  ml-[2rem]">
