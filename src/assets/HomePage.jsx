@@ -1,11 +1,6 @@
  import { data } from "react-router";
-import Banner from "../../src/Banner";
+import Banner from "../Banner";
 import React,{useState,useEffect} from "react";
-
-const GooglePhone = "../images/phone.png"
-const tshirt = "../images/tshirt.jpg";
-const iphone = "../images/iphone.webp";
-const keyboard =  "../images/keyboard.jpg";
 
 function Intro(){
     return(
@@ -42,6 +37,43 @@ Products
     )
 }
 
+
+function Dropdown (){
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState("Select an option");
+  
+  const options = ["Option 1", "Option 2", "Option 3"];
+
+  return (
+    <div className="relative inline-block text-left">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md focus:outline-none"
+      >
+        {selected}
+      </button>
+      {isOpen && (
+        <div className="absolute left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg">
+          {options.map((option, index) => (
+            <div
+              key={index}
+              onClick={() => {
+                setSelected(option);
+                setIsOpen(false);
+              }}
+              className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
+            >
+              {option}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+
+
 function HomePage(){
 
 let [temp,setTemp]=useState([]);
@@ -60,14 +92,16 @@ return(
     <div className="bg-gray-200">
          <Intro/>   
          <Products/>
+         <Dropdown/>
        <div className="w-100vw flex justify-center bg-gray-200 pb-[2rem]">
         <div className="w-[80rem]  flex justify-center flex-wrap ">
        
-        {temp===null ? <>NO ITEM IN CART</>: temp.map((data)=> (<Banner 
+        {temp===null ? <>NO ITEM IN CART</>: temp.map((data)=> (<Banner key={data.id} 
         image={data.image} 
         name={data.title}
         price={data.price}
         sold={data.rating.count}
+        rating={data.rating.rate}
         />))} 
         
         

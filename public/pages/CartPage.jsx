@@ -2,6 +2,8 @@ import React, { useState,useEffect } from "react";
 
 function Item(props) {
     let imageLocation = `https://fakestoreapi.com/img/${props.image}`;
+
+    
     const[quantity,setQuantity]=useState(1);
 function handleDelClick(){
     props.setCartList(props.cartList.filter((item,index)=> index != props.index)); 

@@ -10,7 +10,7 @@ return(
      <div className="pl-[0.4rem]">
      <div className=" flex h-10">{props.name}</div>
      <div className=" flex h-7 text-blue-500 text-[1.2rem]">$ {props.price}</div>
-     <div className="flex h-10 text-[0.8rem]">{props.sold} sold</div>
+     <div className="flex h-10 text-[0.8rem]">{props.sold}sold {props.rating}</div>
      </div>
  
     </Link>

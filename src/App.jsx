@@ -2,7 +2,7 @@ import Navbar from "./Navbar"
 import Footer from "../public/pages/Footer" ;  import SecNavbar from "./secNav";
 import Banner from "./Banner"
 import phone from "../public/images/phone.png"
-import HomePage from "../public/pages/HomePage"
+import HomePage from "./assets/HomePage";
 import Product from "../public/pages/Product";
 import CartPage from "../public/pages/CartPage"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'  
