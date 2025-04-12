@@ -1,5 +1,5 @@
 import Navbar from "./Navbar"
-import Footer from "../public/pages/Footer" ;  import SecNavbar from "./secNav";
+import Footer from "../public/pages/Footer" ;
 
 import HomePage from "./assets/HomePage";
 import Product from "../public/pages/Product";
