@@ -93,7 +93,7 @@ return(
          <Intro/>   
          <Products/>
          <Dropdown/>
-       <div className="w-100vw flex justify-center bg-gray-200 pb-[2rem]">
+       <div  className="w-100vw flex justify-center bg-gray-200 pb-[2rem]">
         <div className="w-[80rem]  flex justify-center flex-wrap ">
        
         {temp===null ? <>NO ITEM IN CART</>: temp.map((data)=> (<Banner key={data.id} 
