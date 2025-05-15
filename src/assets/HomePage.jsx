@@ -85,7 +85,7 @@ useEffect(()=>{
   .then(data => setTemp(data));
   
 },[])
-
+//let dataCopy=temp.reduce
 
 return(
 
