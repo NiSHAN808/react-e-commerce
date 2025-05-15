@@ -11,7 +11,7 @@ import react, { useState } from "react";
 
 
 function BuyAndCart(props) {
-
+{console.log(props.category)}
 
 function handdleAddtoCart(){
 // console.log(props.image)

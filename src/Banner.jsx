@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 function Banner(props){
     let x=props.image; x=x.slice(29,x.length);
-   let link="/products/"+x+"/"+props.name+"/"+props.price+"/"+props.sold;
+   let link="/products/"+x+"/"+props.name+"/"+props.price+"/"+props.sold+"/"+props.category;
 return(
     <Link to={link} className="inline-block h-fit mt-[0.5rem] ml-[0.5rem] inline w-[14rem] bg-white hover:bg-blue-200 p-[0.3rem]">
         <img loading="lazy" src={props.image} className="w-[14rem] h-[14rem]"/>
