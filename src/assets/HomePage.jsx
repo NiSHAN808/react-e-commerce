@@ -38,11 +38,11 @@ Products
 }
 
 
-function Dropdown (){
+function Dropdown (props){
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState("Select an option");
+ 
   
-  const options = ["Option 1", "Option 2", "Option 3"];
+  
 
   return (
     <div className="relative inline-block text-left">
@@ -50,15 +50,15 @@ function Dropdown (){
         onClick={() => setIsOpen(!isOpen)}
         className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md focus:outline-none"
       >
-        {selected}
+        {props.selCato}
       </button>
       {isOpen && (
         <div className="absolute left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg">
-          {options.map((option, index) => (
+          {props.categories.map((option, index) => (
             <div
               key={index}
               onClick={() => {
-                setSelected(option);
+              props.setSelCato(option);
                 setIsOpen(false);
               }}
               className="px-4 py-2 hover:bg-gray-200 cursor-pointer"
@@ -75,37 +75,57 @@ function Dropdown (){
 
 
 function HomePage(){
+  const [temp, setTemp] = useState([]);
+  const [categories, setCategories] = useState([]);
+const [selCato,setSelCato]=useState("ALL");
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then(response => response.json())
+      .then(data => {
+        setTemp(data);
+        const uniqueCategories = createCatoArray(data);
+        console.log(uniqueCategories);
+        setCategories(uniqueCategories);
+      });
+  }, []);
 
-let [temp,setTemp]=useState([]);
-
-
-useEffect(()=>{
-  fetch('https://fakestoreapi.com/products')
-  .then(response => response.json())
-  .then(data => setTemp(data));
-  
-},[])
-//let dataCopy=temp.reduce
+  function createCatoArray(data) {
+    const catoArray = ["ALL"];
+    for (let index = 0; index < data.length; index++) {
+      if (!catoArray.includes(data[index].category)) {
+        catoArray.push(data[index].category);
+      }
+    }
+    return catoArray;
+  }
 
 return(
 
     <div className="bg-gray-200">
          <Intro/>   
          <Products/>
-         <Dropdown/>
+
+         <Dropdown categories={categories} selCato={selCato} setSelCato={setSelCato} setTemp={setTemp}/>
        <div  className="w-100vw flex justify-center bg-gray-200 pb-[2rem]">
         <div className="w-[80rem]  flex justify-center flex-wrap ">
        
-        {temp===null ? <>NO ITEM IN CART</>: temp.map((data)=> (<Banner key={data.id} 
+        {temp===null ? <>NO ITEM IN CART</>: temp.map((data)=> ( selCato==="ALL"? <Banner key={data.id} 
+        image={data.image} 
+        name={data.title}
+        price={data.price}
+        sold={data.rating.count}
+        rating={data.rating.rate}
+     category= {data.category}/>
+         : data.category===selCato ? <Banner key={data.id} 
         image={data.image} 
         name={data.title}
         price={data.price}
         sold={data.rating.count}
         rating={data.rating.rate}
      category= {data.category}
-        />))} 
+        /> :<></> ))} 
         
-        
+        {selCato}
         </div>
         </div>
     </div>
