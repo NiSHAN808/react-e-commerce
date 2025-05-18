@@ -30,7 +30,7 @@ function Products(){
 </svg>
 </div>
 
-<div className=" h-[10vw]  text-[7vw]  ml-[3vw] mr-[3vw] font-mono inline-flex justify-center">
+<div className=" h-[10vw]  text-[7vw] md:text-[5vw] lg:text-[3.5vw] xl:text-[3vw] ml-[3vw] mr-[3vw] font-mono inline-flex justify-center">
 Products
 </div>
 
