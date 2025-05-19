@@ -19,14 +19,14 @@ function Navbar() {
     return (
         <>
 
-            <nav className="bg-blue-300 h-[10vw] flex justify-between items-center sticky top-0 lg:h-13 xl:h-12" >
+            <nav className="bg-blue-300 h-[10vw] flex justify-between items-center sticky top-0 lg:h-13  " >
                 <div className="logo">
                     {/* website
                     logo-ecommerce
                        let link="/products/"+x+"/"+props.name+"/"+props.price+"/"+props.sold+"/"+props.category;
                         */}
-    <Link to={link} className="inline-flex justify-center h-fit  inline w-[40vw] h-[10vw] overflow-hidden  hover:bg-blue-200 p-[1vw]  ">
-        <img loading="lazy" src="../images/logo-ec.png" className=" h-[8vw] lg:h-[4vw] xl:h-[2.5vw]"/>
+    <Link to={link} className="inline-flex justify-center h-fit  inline w-[40vw] h-[10vw] overflow-hidden   p-[1vw]  ">
+        <img loading="lazy" src="../images/logo-ec.png" className=" h-[8vw] lg:h-[3.5vw] xl:h-[2.5vw] 2xl:h-[1.8vw]"/>
 
  
     </Link>
@@ -43,9 +43,9 @@ function Navbar() {
 
                 </div>
                 <div ref={pages} className="pages w-[40vw] flex justify-around">
-                <Link to="/" className="hover:text-purple-700 md:text-[3.5vw] lg:text-[2vw]" onClick={handleHamClick} >Home</Link>
-                <Link to="/second" className="hover:text-purple-700 md:text-[3.5vw]  lg:text-[2vw]" onClick={handleHamClick}>Products</Link>
-                <Link to="/cart" className="hover:text-purple-700 md:text-[3.5vw]  lg:text-[2vw]"onClick={handleHamClick} >Cart</Link>
+                <Link to="/" className="hover:text-purple-700 md:text-[3.5vw] lg:text-[2vw] xl:text-[1.9vw] " onClick={handleHamClick} >Home</Link>
+                <Link to="/second" className="hover:text-purple-700 md:text-[3.5vw]  lg:text-[2vw] xl:text-[1.9vw]" onClick={handleHamClick}>Products</Link>
+                <Link to="/cart" className="hover:text-purple-700 md:text-[3.5vw]  lg:text-[2vw] xl:text-[1.9vw]"onClick={handleHamClick} >Cart</Link>
                     {/* <a className="hover:text-purple-700 ">home</a>
                     <a className="hover:text-purple-700 ">products</a>
                     <a className="hover:text-purple-700 ">cart</a> */}
