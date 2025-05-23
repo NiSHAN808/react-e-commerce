@@ -1,15 +1,6 @@
 import { useParams } from "react-router-dom";
-import react, { useState } from "react";
-
-
-
-
-
-
-
-
-
-
+import react, { useState, useEffect } from "react";
+import Banner from "../../src/Banner";
 function BuyAndCart(props) {
 {console.log(props.category)}
 
@@ -35,18 +26,16 @@ localStorage.setItem("cartItem",JSON.stringify(cartItem));
 
 
     return (
-        <div className="mt-[1rem]">
-            <button className="bg-[#fcb700] text-black w-[15vw] mr-[1rem] px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#e6a600]">
+        <div className="p-[1rem] w-full inline-flex justify-center ">
+            <button className="bg-[#fcb700] text-black w-[35vw] md:w-[15vw] lg:w-[15vw] mr-[1rem] px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#e6a600]">
                 Buy
             </button>
-            <button onClick={handdleAddtoCart} className="bg-[#00bafe] text-black w-[15vw]  px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#0288b9]">
+            <button onClick={handdleAddtoCart} className="bg-[#00bafe] text-black w-[35vw] md:w-[15vw] lg:w-[15vw] px-4 py-2 rounded-lg shadow-md transition duration-300 hover:bg-[#0288b9]">
                 Add to Cart
             </button>
         </div>
     )
 }
-
-
 function Color(props) {
     let [color, setcolor] = useState("red"); props.setSlectedColor(color);
     const params = useParams();
@@ -72,6 +61,43 @@ function Color(props) {
         </>
     )
 }
+
+function Recomendation(props){
+  const [temp, setTemp] = useState([]);
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then(response => response.json())
+      .then(data => {
+        setTemp(data);
+     
+      });
+  }, []);
+
+return(
+
+    <div className="bg-gray-200">
+      
+
+       
+       <div  className="w-100vw flex justify-center bg-gray-200 pb-[2.5vw]">
+        <div className="w-[90vw]  flex justify-center flex-wrap ">
+       
+        {temp===null ? <>NO ITEM IN CART</>: temp.map((data)=> ( data.category===props.category ? <Banner key={data.id} 
+        image={data.image} 
+        name={data.title}
+        price={data.price}
+        sold={data.rating.count}
+        rating={data.rating.rate}
+     category= {data.category}
+        /> :<></> ))} 
+        
+        
+        </div>
+        </div>
+    </div>
+)
+}
 function Product() {
 let [selectedColor,setSlectedColor]=useState("");
     let [quantity, setQuantity] = useState(1);
@@ -92,15 +118,15 @@ let [selectedColor,setSlectedColor]=useState("");
 
 
 
-        <div className=" w-full h-[90vh] bg-gray-200 inline-flex justify-center items-center">
-            <div className=" w-[75vw] h-[75vh] bg-white inline-flex">
-                <div className=" w-[35vw] h-[75vh]  inline-block">
+        <div className=" w-full h-fit bg-gray-200 pt-[5vw] inline-flex justify-center items-center  ">
+            <div className=" w-[90vw] lg:w-[75vw] h-fit bg-white inline-flex flex-col md:flex-row">
+                <div className=" w-full md:w-[45vw] lg:w-[35vw] h-fit  inline-flex justify-center items-center">
                     <img src={imageLocation} className="w-[30rem] h-[30rem]" />
 
                 </div>
 
-                <div className=" w-[35vw] h-[75vh]  inline-block">
-                    <h1 className=" text-[2rem] p-[0.2rem] h-[10rem]">{params.name} multiple color option are availble</h1>
+                <div className=" md:w-[45vw] lg:w-[35vw] h-fit  inline-block">
+                    <h1 className=" text-[2rem] p-[0.2rem] h-[10rem]" overflow-hidden >{params.name} multiple color option are availble</h1>
                     <hr />
                     <h4 className=" text-[1.5rem] p-[0.5rem]">{params.sold} </h4>
 
@@ -121,9 +147,11 @@ let [selectedColor,setSlectedColor]=useState("");
                     color={selectedColor}/>
                 </div>
             </div>
-  s:{selectedColor}
+
         </div>
+        <Recomendation category={params.category}/>
     </>
     )
 
-} export default Product;                                                           
+}
+ export default Product;                                                           
