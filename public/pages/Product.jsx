@@ -126,7 +126,7 @@ let [selectedColor,setSlectedColor]=useState("");
                 </div>
 
                 <div className=" md:w-[45vw] lg:w-[35vw] h-fit  inline-block">
-                    <h1 className=" text-[2rem] p-[0.2rem] h-[10rem]" overflow-hidden >{params.name} multiple color option are availble</h1>
+                    <h1 className=" text-[2rem] p-[0.2rem] h-[10rem] overflow-hidden " overflow-hidden >{params.name} multiple color option are availble</h1>
                     <hr />
                     <h4 className=" text-[1.5rem] p-[0.5rem]">{params.sold} </h4>
 
