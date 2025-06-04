@@ -18,6 +18,7 @@ useEffect(() => {
   socket = io("http://localhost:8000");
 
   const name = localStorage.getItem("name");
+  if(name===null) name="Guest";
   setYourName(name);
   socket.emit("i-pn-s", name);
 
@@ -74,26 +75,32 @@ useEffect(() => {
   };
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-r from-green-700 to-yellow-400 flex flex-col items-center justify-center">
-      <div className="w-[35rem] h-[7rem] flex justify-between items-center px-4">
-        <div className="text-3xl font-fantasy text-blue">{yourName}</div>
-        <div className="text-2xl">{hearts(yourLife)}</div>
-        <div className="text-3xl font-fantasy text-red">{enemyName}</div>
-        <div className="text-2xl">{hearts(enemyLife)}</div>
+<div className="min-h-screen w-full bg-gradient-to-r from-green-700 to-yellow-400 flex flex-col items-center justify-center p-4">
+      <div className="w-[50vw] max-w-4xl flex flex-col sm:flex-row justify-between items-center sm:items-start gap-4 sm:gap-8 mb-6">
+        <div className="flex flex-col items-center">
+          <div className="text-2.5rem sm:text-3xl font-fantasy text-blue-700">{yourName}</div>
+          <div className="text-lg sm:text-2xl">{hearts(yourLife)}</div>
+        </div>
+        <div className="flex flex-col items-center">
+          <div className="text-2.5rem sm:text-3xl font-fantasy text-red-700">{enemyName}</div>
+          <div className="text-lg sm:text-2xl">{hearts(enemyLife)}</div>
+        </div>
       </div>
-      <div className="w-[19rem] h-[19rem] bg-black grid grid-cols-3 gap-2 mt-4">
+
+<div className="grid grid-cols-3 gap-2 w-full max-w-sm aspect-square bg-black">
         {positions.map((value, idx) => (
           <div
             key={idx}
-            className="w-[6rem] h-[6rem] bg-white flex justify-center items-center text-3xl font-cursive cursor-pointer"
-            style={{ color: value === 1 ? "blue" : value === 2 ? "red" : "transparent" }}
+            className="flex items-center justify-center bg-white text-2xl sm:text-3xl font-cursive cursor-pointer"
+            style={{
+              color: value === 1 ? "blue" : value === 2 ? "red" : "transparent",
+            }}
             onClick={() => handleClick(idx)}
           >
             {value === 1 ? "X" : value === 2 ? "O" : "."}
           </div>
-        
         ))}
-      </div>  {turn===1 ? "yours" : "enemy's"}
+      </div> <div className="font-mono text-[1.5rem]">{turn===1 ? "your's" : "enemy's"}</div>
     </div>
   );
 };
