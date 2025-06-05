@@ -17,7 +17,7 @@ export const PlayWithFriends = () => {
 useEffect(() => {
   socket = io("http://localhost:8000");
 
-  const name = localStorage.getItem("name");
+  let name = localStorage.getItem("name");
   if(name===null) name="Guest";
   setYourName(name);
   socket.emit("i-pn-s", name);
